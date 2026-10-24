@@ -1,0 +1,48 @@
+{
+  "name": "CFU-Playground (Renode)",
+
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+
+  "remoteUser": "vscode",
+
+  // Runs during the PREBUILD (once), not for each student. Installs the conda
+  // toolchain, Renode, and builds proj/my_first_cfu so students start from a
+  // warm build. See .devcontainer/on-create.sh.
+  "onCreateCommand": "bash .devcontainer/on-create.sh",
+
+  "postCreateCommand": "git config --global --add safe.directory '*'",
+
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
+
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["START-HERE.md"]
+    },
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python",
+        "mshr-h.veriloghdl"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.watcherExclude": {
+          "**/third_party/**": true,
+          "**/env/**": true,
+          "**/build/**": true
+        },
+        "search.exclude": {
+          "**/third_party/**": true,
+          "**/env/**": true
+        }
+      }
+    }
+  }
+}
