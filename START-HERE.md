@@ -39,8 +39,6 @@ git commit -m "Describe what you did"
 git push
 ```
 
-## 4. For your report
 
-- Cycle counts come from Renode's CPU model and may differ from the numbers in the tutorial.
   Compare your own baseline run against your own optimised runs, and report the speed-ups.
 - Record the commands you ran and the output you saw (copy from the terminal).
